@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,6 +33,19 @@ public class CategoryController {
     @PostMapping("/save")
     public String save(@ModelAttribute Category category) {
         categoryRepository.save(category);
+        return "redirect:/categories";
+    }
+    
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        Category category = categoryRepository.findById(id).orElseThrow();
+        model.addAttribute("category", category);
+        return "category-form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        categoryRepository.deleteById(id);
         return "redirect:/categories";
     }
 }

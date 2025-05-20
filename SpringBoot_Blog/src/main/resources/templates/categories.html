@@ -8,7 +8,11 @@
     <h2>Danh sách danh mục</h2>
     <a th:href="@{/categories/create}">+ Tạo danh mục</a>
     <ul>
-        <li th:each="cat : ${categories}" th:text="${cat.name}"></li>
-    </ul>
+  		<li th:each="cat : ${categories}">
+    		<span th:text="${cat.name}"></span> |
+    		<a th:href="@{'/categories/edit/' + ${cat.id}}">Sửa</a> |
+    		<a th:href="@{'/categories/delete/' + ${cat.id}}" onclick="return confirm('Xóa danh mục?')">Xóa</a>
+  		</li>
+	</ul>
 </body>
 </html>

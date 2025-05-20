@@ -9,9 +9,11 @@
     <a th:href="@{/posts/create}">+ Tạo bài viết</a>
     <ul>
         <li th:each="post : ${posts}">
-            <b th:text="${post.title}"></b> - 
-            <span th:text="${post.category.name}"></span>
-        </li>
+    		<b th:text="${post.title}"></b> - 
+    		<span th:text="${post.category.name}"></span> |
+    		<a th:href="@{'/posts/edit/' + ${post.id}}">Sửa</a> |
+    		<a th:href="@{'/posts/delete/' + ${post.id}}" onclick="return confirm('Xóa bài viết?')">Xóa</a>
+  		</li>
     </ul>
 </body>
 </html>
