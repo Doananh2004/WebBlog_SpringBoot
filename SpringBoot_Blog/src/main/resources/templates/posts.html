@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Bài viết</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Danh sách bài viết</h2>
+    <a th:href="@{/posts/create}">+ Tạo bài viết</a>
+    <ul>
+        <li th:each="post : ${posts}">
+            <b th:text="${post.title}"></b> - 
+            <span th:text="${post.category.name}"></span>
+        </li>
+    </ul>
+</body>
+</html>

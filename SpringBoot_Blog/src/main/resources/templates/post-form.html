@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Thêm bài viết</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Thêm/Sửa bài viết</h2>
+    <form th:action="@{/posts/save}" th:object="${post}" method="post">
+    	<label>Title:</label>
+    	<input type="text" th:field="*{title}" />
+
+    	<label>Content:</label>
+    	<textarea th:field="*{content}"></textarea>
+
+    	<label>Category:</label>
+    	<select name="categoryId">
+        	<option th:each="cat : ${categories}"
+                	th:value="${cat.id}"
+                	th:text="${cat.name}"
+                	th:selected="${cat.id} == ${post.category?.id}">
+        	</option>
+    	</select>
+
+    	<button type="submit">Save</button>
+	</form>
+
+</body>
+</html>

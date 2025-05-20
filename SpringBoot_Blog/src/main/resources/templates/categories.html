@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Danh mục</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Danh sách danh mục</h2>
+    <a th:href="@{/categories/create}">+ Tạo danh mục</a>
+    <ul>
+        <li th:each="cat : ${categories}" th:text="${cat.name}"></li>
+    </ul>
+</body>
+</html>
