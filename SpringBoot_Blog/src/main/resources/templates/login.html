@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>🔐 Đăng nhập</h2>
+    <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Tên đăng nhập" required>
+        <input type="password" name="password" placeholder="Mật khẩu" required>
+        <button type="submit">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="/register">Đăng ký</a></p>
+</div>
+</body>
+</html>

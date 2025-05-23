@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .register-container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .register-container button:hover {
+            background-color: #218838;
+        }
+
+        .register-container p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .register-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="register-container">
+    <h2>📝 Đăng ký tài khoản</h2>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <input type="text" th:field="*{username}" placeholder="Tên đăng nhập" required>
+        <input type="password" th:field="*{password}" placeholder="Mật khẩu" required>
+        <button type="submit">Đăng ký</button>
+    </form>
+    <p>Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
+</div>
+</body>
+</html>
