@@ -10,7 +10,7 @@
         }
         .home-container {
             max-width: 700px;
-            margin: 100px auto;
+            margin: 60px auto;
             padding: 40px;
             background: white;
             border-radius: 12px;
@@ -18,16 +18,16 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            margin-bottom: 30px;
             color: #333;
         }
         .card-group {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 30px;
             margin-top: 20px;
         }
         .card {
-            width: 200px;
+            width: 180px;
             padding: 20px;
             background: #e9f5ff;
             border-radius: 10px;
@@ -35,34 +35,31 @@
             color: #007bff;
             font-weight: bold;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
         }
-        .card:hover {
-            transform: scale(1.05);
-            background: #d0ecff;
+        .stats {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #444;
         }
-        .card i {
-            font-size: 36px;
-            display: block;
-            margin-bottom: 10px;
-            color: #0056b3;
+        .stats span {
+            font-weight: bold;
+            color: #007bff;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <div class="home-container">
-        <h1>📚 Hệ thống Quản lý Bài viết</h1>
-        <div class="card-group">
-            <a href="/posts" class="card">
-                <i class="fas fa-file-alt"></i>
-                Bài viết
-            </a>
-            <a href="/categories" class="card">
-                <i class="fas fa-folder"></i>
-                Danh mục
-            </a>
-        </div>
+<div class="home-container">
+    <h1>📚 Hệ thống Quản lý Bài viết</h1>
+
+    <div class="card-group">
+        <a href="/posts" class="card">📄 Bài viết</a>
+        <a href="/categories" class="card">📂 Danh mục</a>
     </div>
+
+    <div class="stats">
+        <p>🔢 Tổng bài viết: <span th:text="${postCount}">0</span></p>
+        <p>📁 Tổng danh mục: <span th:text="${categoryCount}">0</span></p>
+    </div>
+</div>
 </body>
 </html>
