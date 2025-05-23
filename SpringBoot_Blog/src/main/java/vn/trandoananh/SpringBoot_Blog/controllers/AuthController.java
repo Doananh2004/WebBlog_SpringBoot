@@ -27,9 +27,4 @@ public class AuthController {
         userRepository.save(user);
         return "redirect:/login";
     }
-
-    @GetMapping("/login")
-    public String showLogin() {
-        return "login";
-    }
 }
