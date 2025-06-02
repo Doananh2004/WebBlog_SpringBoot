@@ -1,30 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Danh sách Danh mục</title>
+    <meta charset="UTF-8">
+    <title>Quản lý Danh mục</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            background-color: #f2f2f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        a.btn {
+            padding: 8px 14px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+
+<header>
+    <h1>📂 Quản lý Danh mục</h1>
+</header>
+
 <div class="container">
-    <h2>Danh sách Danh mục</h2>
     <a th:href="@{/categories/create}" class="btn">+ Thêm danh mục</a>
     <table>
         <thead>
-            <tr>
-                <th>Tên danh mục</th>
-                <th>Thao tác</th>
-            </tr>
+        <tr>
+            <th>Tên danh mục</th>
+            <th>Thao tác</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="cat : ${categories}">
-                <td th:text="${cat.name}"></td>
-                <td>
-                    <a th:href="@{'/categories/edit/' + ${cat.id}}" class="btn">Sửa</a>
-                    <a th:href="@{'/categories/delete/' + ${cat.id}}" class="btn" onclick="return confirm('Xóa danh mục này?')">Xóa</a>
-                </td>
-            </tr>
+        <tr th:each="cat : ${categories}">
+            <td th:text="${cat.name}"></td>
+            <td>
+                <a th:href="@{'/categories/edit/' + ${cat.id}}" class="btn">Sửa</a>
+                <a th:href="@{'/categories/delete/' + ${cat.id}}" class="btn" onclick="return confirm('Xóa danh mục này?')">Xóa</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
+
+<footer>
+    &copy; 2025 Quản lý Bài viết | Trang quản lý danh mục
+</footer>
+
 </body>
 </html>

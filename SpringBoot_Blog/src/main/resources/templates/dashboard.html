@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Quản lý bài viết</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            background-color: #f2f2f2;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-card {
+            flex: 1 1 250px;
+            background: #e9f5ff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .stat-card i {
+            font-size: 36px;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📊 Dashboard Hệ thống</h1>
+</header>
+
+<div class="dashboard-container">
+    <h2>Thống kê tổng quan</h2>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Tổng số bài viết</h3>
+            <div class="value" th:text="${postCount}">0</div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-folder-open"></i>
+            <h3>Tổng số danh mục</h3>
+            <div class="value" th:text="${categoryCount}">0</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Quản lý Bài viết | Trang tổng quan hệ thống
+</footer>
+
+</body>
+</html>

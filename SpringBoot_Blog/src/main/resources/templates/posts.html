@@ -1,34 +1,87 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Danh sách bài viết</title>
+    <meta charset="UTF-8">
+    <title>Quản lý Bài viết</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            background-color: #f2f2f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        a.btn {
+            padding: 8px 14px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+
+<header>
+    <h1>📄 Quản lý Bài viết</h1>
+</header>
+
 <div class="container">
-    <h2>Danh sách Bài viết</h2>
     <a th:href="@{/posts/create}" class="btn">+ Thêm bài viết</a>
     <table>
         <thead>
-            <tr>
-                <th>Tiêu đề</th>
-                <th>Nội dung</th>
-                <th>Danh mục</th>
-                <th>Thao tác</th>
-            </tr>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Nội dung</th>
+            <th>Danh mục</th>
+            <th>Thao tác</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="post : ${posts}">
-                <td th:text="${post.title}"></td>
-                <td th:text="${post.content}"></td>
-                <td th:text="${post.category.name}"></td>
-                <td>
-                    <a th:href="@{'/posts/edit/' + ${post.id}}" class="btn">Sửa</a>
-                    <a th:href="@{'/posts/delete/' + ${post.id}}" class="btn" onclick="return confirm('Xóa bài viết này?')">Xóa</a>
-                </td>
-            </tr>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.content}"></td>
+            <td th:text="${post.category.name}"></td>
+            <td>
+                <a th:href="@{'/posts/edit/' + ${post.id}}" class="btn">Sửa</a>
+                <a th:href="@{'/posts/delete/' + ${post.id}}" class="btn" onclick="return confirm('Xóa bài viết này?')">Xóa</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
+
+<footer>
+    &copy; 2025 Quản lý Bài viết | Trang quản lý bài viết
+</footer>
+
 </body>
 </html>

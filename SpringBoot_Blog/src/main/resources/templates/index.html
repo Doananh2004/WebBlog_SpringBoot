@@ -4,62 +4,141 @@
     <meta charset="UTF-8">
     <title>Trang Chủ - Quản lý Bài viết</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         body {
-            background: #f0f2f5;
-        }
-        .home-container {
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
             color: #333;
         }
-        .card-group {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+
+        header {
+            background-color: #007bff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
         }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
         .card {
-            width: 180px;
-            padding: 20px;
-            background: #e9f5ff;
+            background: white;
+            flex: 1 1 280px;
+            padding: 25px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
             text-decoration: none;
             color: #007bff;
-            font-weight: bold;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #f0f8ff;
+        }
+
+        .card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #0056b3;
+        }
+
         .stats {
-            margin-top: 30px;
-            font-size: 18px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            flex: 1 1 200px;
+        }
+
+        .stat-box h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
             color: #444;
         }
-        .stats span {
+
+        .stat-box span {
+            font-size: 28px;
             font-weight: bold;
             color: #007bff;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 15px;
+            text-align: center;
+            color: #888;
         }
     </style>
 </head>
 <body>
-<div class="home-container">
+
+<header>
     <h1>📚 Hệ thống Quản lý Bài viết</h1>
+</header>
 
-    <div class="card-group">
-        <a href="/posts" class="card">📄 Bài viết</a>
-        <a href="/categories" class="card">📂 Danh mục</a>
+<div class="container">
+
+    <div class="section-title">📁 Điều hướng</div>
+    <div class="cards">
+        <a href="/posts" class="card">
+            <i class="fas fa-file-alt"></i>
+            <div>Quản lý Bài viết</div>
+        </a>
+        <a href="/categories" class="card">
+            <i class="fas fa-folder"></i>
+            <div>Quản lý Danh mục</div>
+        </a>
+        <a href="/dashboard" class="card">
+            <i class="fas fa-chart-line"></i>
+            <div>Thống kê hệ thống</div>
+        </a>
     </div>
 
+    <div class="section-title">📊 Thống kê nhanh</div>
     <div class="stats">
-        <p>🔢 Tổng bài viết: <span th:text="${postCount}">0</span></p>
-        <p>📁 Tổng danh mục: <span th:text="${categoryCount}">0</span></p>
+        <div class="stat-box">
+            <h3>Tổng số bài viết</h3>
+            <span th:text="${postCount}">0</span>
+        </div>
+        <div class="stat-box">
+            <h3>Tổng số danh mục</h3>
+            <span th:text="${categoryCount}">0</span>
+        </div>
     </div>
+
 </div>
+
+<footer>
+    &copy; 2025 Quản lý Bài viết | Nhóm phát triển Spring Boot Blog
+</footer>
+
 </body>
 </html>
