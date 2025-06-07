@@ -40,7 +40,7 @@ public class CategoryController {
     public String showEditForm(@PathVariable Long id, Model model) {
         Category category = categoryRepository.findById(id).orElseThrow();
         model.addAttribute("category", category);
-        return "category-form";
+        return "category-edit";
     }
 
     @GetMapping("/delete/{id}")

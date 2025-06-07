@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm danh mục</title>
+    <title>Chỉnh sửa Danh mục</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
         body {
@@ -43,7 +43,7 @@
         }
         button {
             margin-top: 20px;
-            background-color: #007bff;
+            background-color: #28a745;
             color: white;
             padding: 10px 16px;
             border: none;
@@ -51,26 +51,27 @@
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>📂 Thêm mới Danh mục</h1>
+    <h1>📂 Chỉnh sửa Danh mục</h1>
 </header>
 
 <div class="container">
     <form th:action="@{/categories/save}" th:object="${category}" method="post">
+        <input type="hidden" th:field="*{id}" />
         <label>Tên danh mục:</label>
         <input type="text" th:field="*{name}" required />
-        <button type="submit">Lưu danh mục</button>
+        <button type="submit">Cập nhật</button>
     </form>
 </div>
 
 <footer>
-    &copy; 2025 Quản lý Bài viết | Thêm mới danh mục
+    &copy; 2025 Quản lý Bài viết | Chỉnh sửa danh mục
 </footer>
 
 </body>

@@ -50,7 +50,7 @@ public class PostController {
         Post post = postRepository.findById(id).orElseThrow();
         model.addAttribute("post", post);
         model.addAttribute("categories", categoryRepository.findAll());
-        return "post-form";
+        return "post-edit";
     }
 
     @GetMapping("/delete/{id}")

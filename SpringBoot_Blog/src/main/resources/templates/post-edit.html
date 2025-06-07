@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm danh mục</title>
+    <title>Chỉnh sửa Bài viết</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
         body {
@@ -23,7 +23,7 @@
             color: #888;
         }
         .container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 40px auto;
             background: white;
             padding: 30px;
@@ -32,18 +32,19 @@
         }
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-top: 10px;
             font-weight: bold;
         }
-        input {
+        input, textarea, select {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            margin-top: 6px;
             border-radius: 6px;
             border: 1px solid #ccc;
         }
         button {
             margin-top: 20px;
-            background-color: #007bff;
+            background-color: #28a745;
             color: white;
             padding: 10px 16px;
             border: none;
@@ -51,26 +52,40 @@
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>📂 Thêm mới Danh mục</h1>
+    <h1>✏️ Chỉnh sửa Bài viết</h1>
 </header>
 
 <div class="container">
-    <form th:action="@{/categories/save}" th:object="${category}" method="post">
-        <label>Tên danh mục:</label>
-        <input type="text" th:field="*{name}" required />
-        <button type="submit">Lưu danh mục</button>
+    <form th:action="@{/posts/save}" th:object="${post}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label>Tiêu đề:</label>
+        <input type="text" th:field="*{title}" required />
+
+        <label>Nội dung:</label>
+        <textarea th:field="*{content}" rows="6" required></textarea>
+
+        <label>Danh mục:</label>
+        <select name="categoryId" required>
+            <option th:each="cat : ${categories}"
+                    th:value="${cat.id}"
+                    th:text="${cat.name}"
+                    th:selected="${cat.id} == ${post.category?.id}">
+            </option>
+        </select>
+
+        <button type="submit">Cập nhật</button>
     </form>
 </div>
 
 <footer>
-    &copy; 2025 Quản lý Bài viết | Thêm mới danh mục
+    &copy; 2025 Quản lý Bài viết | Chỉnh sửa bài viết
 </footer>
 
 </body>
